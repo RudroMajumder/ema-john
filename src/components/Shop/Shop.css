@@ -7,3 +7,9 @@
     margin-right:5px;
     border-right: 5px solid lightgrey;
 }
+.cart-container{
+    margin: 0 auto;
+  border: 3px ;
+  padding: 10px;
+
+}
