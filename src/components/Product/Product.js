@@ -1,21 +1,24 @@
 import React from 'react';
 import "./Product.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 
 
 
 const Product = (props) => {
+    const {img,name,seller,price,stock} = props.singleProduct;
     return (
         <div className="product">
             <div  className="product-image">
-                <img src={props.singleProduct.img} alt=""/>
+                <img src={img} alt=""/>
             </div>
             <div className="product-details">
-                <h4>{props.singleProduct.name}</h4>
-                <p> by {props.singleProduct.seller} </p>
-                <h4 style={{color:'black'}}> ${props.singleProduct.price} </h4>
-                <h4 style={{color:'black'}}> Only {props.singleProduct.stock} left in stock,order soon</h4>
-                <button> Add to cart </button>
+                <h4>{name}</h4>
+                <p> by {seller} </p>
+                <h4 style={{color:'black'}}> ${price} </h4>
+                <h4 style={{color:'black'}}> Only {stock} left in stock,order soon</h4>
+                <button className="main-btn" onClick={()=> props.handleClick(props.singleProduct)}><FontAwesomeIcon icon={faShoppingCart} />Add to cart</button>
             </div>
         </div>
     );
