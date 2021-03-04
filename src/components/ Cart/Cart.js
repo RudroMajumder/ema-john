@@ -5,7 +5,7 @@ const Cart = (props) => {
     let total = 0;
     for(let i=0;i<cart.length;i++){
         const product = cart[i];
-        total= parseFloat((total+product.price).toFixed(2));
+        total= parseFloat((total+product.price*product.quantity).toFixed(2));
     }
     let shipping = 0;
      if( total > 34.99){
@@ -28,6 +28,10 @@ const Cart = (props) => {
             <p> <big> Shipping price: {shipping} </big> </p>
             <p> <big> Tax:{tax} </big> </p>
             <p> <big> Total:{parseFloat((total+shipping+tax).toFixed(2))} </big> </p>
+            <br/>
+            {
+                props.children
+            }
         </div>
     );
 };
