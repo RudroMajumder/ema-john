@@ -4,6 +4,7 @@ import fakeData from '../../fakeData';
 import { getDatabaseCart, processOrder, removeFromDatabaseCart } from '../../utilities/databaseManager';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import image from '../../images/giphy.gif';
+import { useHistory } from 'react-router';
 
 
 const Review = () => {
@@ -16,11 +17,9 @@ const Review = () => {
         setCart(newCart);
         removeFromDatabaseCart(productKey);
     }
-
-    const placeOrder= () =>{
-        setCart([]);
-        setOrderPlaced(true);
-        processOrder();
+const history = useHistory()
+    const handleProceedOrder= () =>{
+        history.push('/shipment');
     }
 
     let placedOrder;
@@ -55,7 +54,7 @@ const Review = () => {
             </div>
             <div className="cart-container">
                 <Cart cart={cart}>
-                    <button className="main-btn" onClick={placeOrder}> Place Order </button>
+                    <button className="main-btn" onClick={handleProceedOrder}> Proceed Order </button>
                 </Cart>
             </div>
         </div>
