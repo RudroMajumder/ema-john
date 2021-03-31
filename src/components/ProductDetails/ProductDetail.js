@@ -6,7 +6,7 @@ const ProductDetail = () => {
     const {productKey} = useParams();
     const [product,setProduct] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/product/'+productKey)
+        fetch('https://evening-brook-43405.herokuapp.com/'+productKey)
         .then( res => res.json())
         .then( data => setProduct(data))
     },[productKey])
