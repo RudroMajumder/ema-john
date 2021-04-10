@@ -28,6 +28,7 @@ export   const handleGoogleSignIn = () =>{
         error : "",
         success : true
       }
+      setUserToken();
       return signedInUser;
       console.log(displayName,email)
     })
@@ -38,7 +39,14 @@ export   const handleGoogleSignIn = () =>{
     });
   }
  
-
+const setUserToken = () =>{
+  firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
+  .then(function(idToken) {
+          sessionStorage.setItem('token',idToken);
+  }).catch(function(error) {
+    // Handle error
+  });
+}
 
 export  const handleFbSignIn = () =>{
     const fbProvider = new firebase.auth.FacebookAuthProvider();
