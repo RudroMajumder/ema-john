@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 const Shop = () => {
     const [products, setProducts] = useState([]);
     const [cart,setCart] = useState([]);
-    const [search,setSearch] = usState('');
+    const [search,setSearch] = useState('');
 
     useEffect(()=>{
         fetch('https://evening-brook-43405.herokuapp.com/products?search='+search)
